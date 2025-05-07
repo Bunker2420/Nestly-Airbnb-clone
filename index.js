@@ -123,6 +123,10 @@ app.use((req,res,next)=>{
     res.locals.currUser = req.user;
     next();
 });
+
+app.get('/',(req,res)=>{
+    res.redirect('/listings')
+})
 // useed express.router for user page
 const userroute = require('./routes/user.js');
 app.use('/SignUp',userroute);
