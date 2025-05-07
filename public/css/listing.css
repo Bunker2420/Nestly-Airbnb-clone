@@ -95,7 +95,7 @@
   justify-content: space-evenly;
   row-gap: 40px;
   column-gap: 16px;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 /* Anchor styling */
@@ -109,14 +109,15 @@
   width: 285px;
   max-width: 300px;
   height: 340px;
-  background-color: #fff;
+  background-color: #f57224;
   border-radius: 16px;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
   overflow: hidden;
   display: flex;
   flex-direction: column;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  margin-bottom: -35px;
+  margin-bottom: -40px;
+  margin-top: 15px;
 }
 
 .card:hover {
