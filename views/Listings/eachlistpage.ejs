@@ -1,0 +1,178 @@
+<% layout('Layouts/BoilerPlate.ejs') %>
+<% title="eachpage" %>
+<% style="/css/each.css" %>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"/>
+ <!-- Flash Messages -->
+ <% if (success_msg && success_msg.length) { %>
+  <div class="flash success">
+    <span><%= success_msg %></span>
+    <button class="close-btn" onclick="this.parentElement.style.display='none'">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+<% } %>
+
+<!--Listing does not exist flash-->
+<% if (error_msg && error_msg.length) { %>
+<div class="flash error">
+  <span><%= error_msg %></span>
+  <button class="close-btn" onclick="this.parentElement.style.display='none'">
+    <i class="fas fa-times"></i>
+  </button>
+</div>
+<% } %>
+
+<h1 class="info">Hotel Information</h1>
+
+<div class="card">
+  <div class="card-img-wrapper">
+    <img src="<%= list.image.url %>" class="card-img-top" alt="Hotel Image" />
+  </div>
+  <div class="card-body">
+    <h1 style="color: #e76f51;
+              font-weight: bold;
+              font-size: 50px;">Owned by <i><%= list.owner.username %></i></h1>
+    <h2 class="card-title"><%= list.title %></h2>
+    <p class="card-text"><%= list.description %></p>
+    <h2 class="card-head"> &#8377;<%= list.price.toLocaleString() %> / night</h2>
+    <h2 class="card-head"><%= list.location %>, <%= list.country %></h2>
+    <h2 class="card-head">contact:<%= list.owner.email %></h2>
+    <div class="butt">
+      <% if(currUser && currUser._id.equals(list.owner._id)) { %>
+      <div>
+        <form action="/listings/<%= list._id %>/edit">
+          <button>Edit the information</button>
+        </form>
+      </div>
+      <div>
+        <form action="/listings/<%= list._id %>?_method=DELETE" method="post">
+          <button>Delete the Listing</button>
+        </form>
+      </div>
+      <% } %>     
+      <div>
+        <a href="/listings" class="back-btn">Back</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div style="display: flex;
+            flex-direction: column;
+            align-items:center ;">
+  <div style="margin-top: 10px;"><h1 style="color: #e76f51;">Location of Hotel</h1></div>
+  <div id="map" style="height: 400px;width: 600px;"></div>
+</div>
+
+
+<div class="review-section">
+  <% if(currUser) { %>
+    <h3>Leave a Review</h3>
+    <form class="review-form" action="/listings/<%= list._id %>/reviews" method="post">
+      <div>
+        <fieldset class="starability-slot">
+          <legend>Rate this listing:</legend>
+          <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked aria-label="No rating." />
+          <input type="radio" id="first-rate1" name="rating" value="1" />
+          <label for="first-rate1" title="Terrible"></label>
+          <input type="radio" id="first-rate2" name="rating" value="2" />
+          <label for="first-rate2" title="Not good"></label>
+          <input type="radio" id="first-rate3" name="rating" value="3" />
+          <label for="first-rate3" title="Average"></label>
+          <input type="radio" id="first-rate4" name="rating" value="4" />
+          <label for="first-rate4" title="Very good"></label>
+          <input type="radio" id="first-rate5" name="rating" value="5" />
+          <label for="first-rate5" title="Amazing"></label>
+        </fieldset>
+      </div>
+
+      <div>
+        <label for="comments">Comment:</label>
+        <textarea name="comments" placeholder="Write your experience..." required></textarea>
+      </div>
+
+      <button type="submit" class="submit-review-btn" style="margin-bottom: 15px;">Submit Review</button>
+    </form>
+  <% } %>
+ <hr>
+  <!-- Recent Reviews Section -->
+   <% if(list.reviews.length === 0) { %>
+  <h2 style="margin-top: 20px;">No Reviews Till now</h2>
+  <% } %>
+   <% if(list.reviews.length > 0) { %>    
+    <div class="reviews-container">
+      <h2>All Reviews</h2>
+      <% for (let lt of list.reviews) { %>
+        <div class="review-card">
+          <p>@<%= lt.author.username %></p>
+
+          <!-- Rating with stars -->
+          <div class="review-stars">
+            <% for (let i = 1; i <= 5; i++) { %>
+              <% if (i <= lt.rating) { %>
+                <i class="fa-solid fa-star filled-star"></i>
+              <% } else { %>
+                <i class="fa-regular fa-star empty-star"></i>
+              <% } %>
+            <% } %>
+          </div>
+
+          <p class="review-comment"><%= lt.comments %></p>
+          <p class="review-timestamp">
+            <%= new Date(lt.createdAt).toLocaleString() %>
+          </p>
+
+          <form action="/listings/<%= list._id %>/reviews/<%= lt._id %>?_method=DELETE" method="post" class="delete-review-form">
+            <button><i class="fa-solid fa-trash"></i></button>
+          </form>
+        </div>
+      <% } %>
+  </div>
+  <% } %>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+<script>
+  const locationQuery = "<%= list.location + ', ' + list.country %>";
+  const apiKey = "<%= apiKey %>";
+  
+  async function showMap() {
+      try {
+          const response = await fetch(`https://us1.locationiq.com/v1/search?key=${apiKey}&q=${encodeURIComponent(locationQuery)}&format=json&lang=en`);
+          const data = await response.json();
+          const lat = data[0].lat;
+          const lon = data[0].lon;
+  
+          const map = L.map('map').setView([lat, lon], 13);
+  
+          // Using CartoDB's Positron tile layer for English labels
+          L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+              attribution: '&copy; OpenStreetMap contributors'
+          }).addTo(map);
+  
+          // Adding a single zoom control
+          map.addControl(L.control.zoom({ position: 'topright' }));
+          L.control.scale().addTo(map);
+  
+          // Custom marker
+          const customIcon = L.icon({
+              iconUrl: 'https://unpkg.com/leaflet@1.9.3/dist/images/marker-icon.png', // Use your custom icon if desired
+              iconSize: [25, 41],
+              iconAnchor: [12, 41],
+              popupAnchor: [1, -34],
+          });
+  
+          L.marker([lat, lon], { icon: customIcon }).addTo(map)
+              .bindPopup(locationQuery)
+              .openPopup();
+      } catch (err) {
+          console.error("Failed to load map:", err);
+      }
+  }
+  
+  showMap();
+</script>
+
+
+  
+<% script="/js/deleteReviewConfirm.js" %>

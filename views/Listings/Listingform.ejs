@@ -1,0 +1,44 @@
+<% layout('Layouts/BoilerPlate.ejs') %>
+<% title = "NewListingForm" %>
+<% style = "/css/form.css" %>
+
+
+<h1 class="text">Create a new listing</h1>
+
+<form action="/listings/new" method="post" class="needs-validation" enctype="multipart/form-data">
+    <div class="form">
+        <div class="input-group">
+            <input type="text" name="title" id="title" required placeholder=" " class="form-control" />
+            <label for="title">Title</label>
+        </div>
+
+        <div class="input-group">
+            <textarea name="description" id="description" required placeholder=" " class="form-control"></textarea>
+            <label for="description">Description</label>
+        </div>
+        
+        <div class="input-group">
+            <input type="file" name="image" id="image" required placeholder=" " class="form-control" />
+            <label for="image">Upload listing Image</label>
+        </div>
+
+        <div class="input-group">
+            <input type="number" name="price" id="price" required placeholder=" " class="form-control" />
+            <label for="price">Price (per night)</label>
+        </div>
+
+        <div class="input-group">
+            <input type="text" name="location" id="location" required placeholder=" " class="form-control" />
+            <label for="location">Location</label>
+        </div>
+
+        <div class="input-group">
+            <input type="text" name="country" id="country" required placeholder=" " class="form-control" />
+            <label for="country">Country</label>
+        </div>
+
+        <button type="submit">Submit</button>
+    </div>
+</form>
+
+<% script="/js/bootstrapformvalidation.js" %>

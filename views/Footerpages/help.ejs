@@ -1,0 +1,95 @@
+<% layout('Layouts/BoilerPlate.ejs') %>
+<% title = "Help Centre" %>
+<% style = "/css/help.css" %>
+
+<div class="help-hero">
+  <h1>Hi, how can we help?</h1>
+  <input type="text" class="search-bar" placeholder="Search help articles..." />
+</div>
+
+<section class="top-articles">
+  <h2>Top Articles</h2>
+  <div class="articles-grid">
+    <article>
+      <h3 style="color: black; font-weight: bold;  font-size: 22px; text-decoration: underline; cursor: pointer;">Canceling your reservation for a stay</h3>
+      <p>Learn how to cancel your reservation and understand the cancellation policies.</p>
+    </article>
+    <article>
+      <h3 style="color: black; font-weight: bold;  font-size: 22px; text-decoration: underline; cursor: pointer;">Changes, cancellations, and refunds</h3>
+      <p>Understand how to make changes to your booking and the refund process.</p>
+    </article>
+    <article>
+      <h3 style="color: black; font-weight: bold;  font-size: 22px; text-decoration: underline; cursor: pointer;">Getting started with hosting</h3>
+      <p>Tips and guidelines to help you start hosting on our platform.</p>
+    </article>
+    <article>
+      <h3 style="color: black; font-weight: bold;  font-size: 22px; text-decoration: underline; cursor: pointer;">AirCover for guests</h3>
+      <p>Discover how AirCover provides protection for your stays.</p>
+    </div>
+</section>
+<hr>
+<section class="explore-more">
+  <h2>Explore More Topics</h2>
+  <div class="topics-grid">
+    <div class="topic-card">
+      <h4>Account Management</h4>
+      <p>Manage your account settings, passwords, and preferences.</p>
+    </div>
+    <div class="topic-card">
+      <h4>Hosting Resources</h4>
+      <p>Access tools and tips to enhance your hosting experience.</p>
+    </div>
+    <div class="topic-card">
+      <h4>Booking & Payments</h4>
+      <p>Learn about booking procedures and payment options.</p>
+    </div>
+    <div class="topic-card">
+      <h4>Community Policies</h4>
+      <p>Understand the guidelines that keep our community safe.</p>
+    </div>
+  </div>
+</section>
+<hr>
+<section class="contact-support">
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <h2>Need to Get in Touch?</h2>
+        <p>If you can't find the answer you're looking for, our support team is here to help.</p>
+        <a href="/contact" class="contact-button">Contact Support</a>
+    </div>
+</section>
+<hr>
+<footer class="feedback-section">
+  <p>Was this page helpful?</p>
+  <button class="feedback-btn yes-btn">Yes</button>
+  <button class="feedback-btn no-btn">No</button>
+  <p id="feedback-message"></p>
+</footer>
+<script>
+    // Handle feedback responses
+    document.querySelector('.yes-btn').addEventListener('click', function() {
+      document.getElementById('feedback-message').textContent = "Thank you for your feedback! We're glad this page was helpful.";
+      document.getElementById('feedback-message').style.color = "#4caf50";  // Green for positive feedback
+      document.getElementById('feedback-message').style.display = "block";
+    });
+  
+    document.querySelector('.no-btn').addEventListener('click', function() {
+      document.getElementById('feedback-message').textContent = "Sorry for the inconvenience! We'll try to improve.";
+      document.getElementById('feedback-message').style.color = "#f44336";  // Red for negative feedback
+      document.getElementById('feedback-message').style.display = "block";
+    });
+  </script>
+<script>
+    // Handle feedback responses
+    document.querySelector('.yes-btn').addEventListener('click', function() {
+      document.getElementById('feedback-message').textContent = "Thank you for your feedback! We're glad this page was helpful.";
+      document.getElementById('feedback-message').style.color = "#4caf50";  // Green for positive feedback
+      document.getElementById('feedback-message').style.display = "block";
+    });
+  
+    document.querySelector('.no-btn').addEventListener('click', function() {
+      document.getElementById('feedback-message').textContent = "Sorry for the inconvenience! We'll try to improve.";
+      document.getElementById('feedback-message').style.color = "#f44336";  // Red for negative feedback
+      document.getElementById('feedback-message').style.display = "block";
+    });
+  </script>
+    

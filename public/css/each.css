@@ -1,0 +1,443 @@
+.card {
+    display: flex;
+    flex-direction: row;
+    width: 95vw;
+    max-width: 1400px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(to right, #fbeee6, #fefefe);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 40px auto;
+    animation: fadeIn 0.8s ease;
+}
+
+.card-img-wrapper {
+    width: 50%;
+    height: 100%;
+    max-height: 600px;
+    overflow: hidden;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.card-img-top:hover {
+    transform: scale(1.02);
+}
+
+.card-body {
+    width: 50%;
+    padding: 40px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-title {
+    font-size: 2.2rem;
+    color: #e76f51;
+    margin: 12px 0;
+    font-weight: 600;
+    animation: fadeInDown 0.6s ease-in-out;
+}
+
+.card-text {
+    font-size: 1.15rem;
+    color: #444;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    animation: fadeIn 1s ease-in-out;
+}
+.card-head
+{
+    font-size: 1.6rem;
+    color: #e76f51;
+    margin-bottom: 5px;
+    font-weight: 600;   
+}
+
+
+form {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+button {
+    padding: 12px 25px;
+    background-color: #e76f51;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+    margin-right: 12px;
+}
+
+button:hover {
+    background-color: #d4553b;
+    transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.back-btn {
+    display: inline-block;
+    width: 80px;
+    padding: 10px 20px;
+    background-color: #e76f51;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+    text-decoration: none;
+    margin-top: 20px;
+    height: 45px;
+
+}
+
+.back-btn:hover {
+    background-color: #d4553b;
+    transform: scale(1.05);
+}
+.butt
+{
+    display: flex;
+}
+
+/* Styling for the map container */
+#map {
+  height: 400px; /* You already have height defined, so this will keep it consistent */
+  border-radius: 16px; /* Rounded corners to match the card design */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Subtle shadow to give depth */
+  margin-top: 30px; /* Space above the map */
+  margin-bottom: 30px; /* Space below the map */
+  background-color: #f7f7f7; /* Light background color */
+  overflow: hidden; /* Ensures content doesn’t overflow the container */
+  transition: all 0.3s ease; /* Smooth transition on hover or resize */
+}
+
+#map:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* A little more shadow on hover */
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 768px) {
+  #map {
+    height: 300px;
+    width: 100%;/* Adjust height on smaller screens */
+  }
+}
+
+
+
+/* Responsive fix */
+@media (max-width: 768px) {
+    .card {
+        flex-direction: column;
+    }
+
+    .card-img-wrapper, .card-body {
+        width: 100%;
+    }
+
+    .card-img-top {
+        height: 300px;
+    }
+
+    .card-body {
+        padding: 25px;
+    }
+
+    .card-title {
+        font-size: 2rem;
+    }
+
+    .card-text {
+        font-size: 1rem;
+    }
+
+    .card-body h2 {
+        font-size: 1.2rem;
+    }
+}
+.info {
+    margin: 40px auto 20px auto;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 700;
+    color: #e76f51;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    animation: fadeInDown 1s ease-in-out;
+}
+/* Updated Review Card Styling */
+.review-card {
+  margin-bottom: 16px;
+  padding: 15px 20px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 2px solid #e76f51;
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  animation: fadeIn 0.8s ease-in-out;
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  animation: fadeInCard 0.8s ease-in-out forwards;
+}
+
+@keyframes fadeInCard {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Reviewer Name */
+.review-card p:first-child {
+  font-weight: 600;
+  color: #2d2d2d;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+/* Timestamp Styling */
+.review-timestamp {
+  font-size: 0.8rem;
+  color: #777;
+  margin-top: 5px;
+  font-style: italic;
+}
+
+/* Rating Styling */
+.review-stars {
+  margin-bottom: 8px;
+}
+
+.review-stars i {
+  color: #e76f51;
+  font-size: 1.2rem;
+  margin-right: 2px;
+}
+
+.filled-star {
+  color: #e76f51;
+}
+
+.empty-star {
+  color: #ccc;
+}
+
+/* Comment Styling */
+.review-comment {
+  font-size: 0.9rem;
+  color: #444;
+  line-height: 1.3;
+}
+
+/* Delete Button Styling */
+.delete-review-form button {
+  background-color: transparent;
+  border: none;
+  color: #e76f51;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.delete-review-form button:hover {
+  color: #d35400;
+  transform: scale(1.2);
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Review Form Section */
+.review-section {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 40px;
+  background: linear-gradient(to right, #fefefe, #fbeee6);
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Review Form Inputs and Labels */
+.review-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.review-form label {
+  font-size: 1rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.review-form input[type="range"] {
+  width: 100%;
+  accent-color: #e76f51;
+  cursor: pointer;
+}
+
+.review-form textarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  font-size: 0.9rem;
+  border: 2px solid #e76f51;
+  border-radius: 12px;
+  resize: none;
+  outline: none;
+}
+
+.review-form textarea:focus {
+  border-color: #d4553b;
+}
+
+/* Submit Button for Review Form */
+.submit-review-btn {
+  padding: 10px 20px;
+  background-color: #e76f51;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+  align-self: center;
+}
+
+.submit-review-btn:hover {
+  background-color: #d4553b;
+  transform: scale(1.05);
+}
+
+/* Custom Scrollbar for Reviews */
+.reviews-container::-webkit-scrollbar {
+  width: 10px;
+}
+
+.reviews-container::-webkit-scrollbar-track {
+  background: #ffffff;
+  border-radius: 10px;
+}
+
+.reviews-container::-webkit-scrollbar-thumb {
+  background-color: #ffa500;
+  border-radius: 10px;
+  border: 2px solid #ffffff;
+}
+
+.reviews-container::-webkit-scrollbar-thumb:hover {
+  background-color: #ff8c00;
+}
+In your CSS file */
+
+.animated-popup {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  .flash {
+    margin: 20px auto;
+    padding: 12px 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 600px;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .flash .close-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: #155724;
+  }
+  
+  .flash .close-btn:hover {
+    color: #0b3e2b;
+  }
+
+  .flash.error {
+    margin: 20px auto;
+    padding: 12px 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 600px;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .flash.error .close-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: #721c24;
+  }
+  
+  .flash.error .close-btn:hover {
+    color: #491217;
+  }
+  
+  

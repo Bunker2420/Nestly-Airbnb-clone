@@ -1,0 +1,57 @@
+<% layout('Layouts/BoilerPlate.ejs') %>
+<% title = "Nestly - Your Home Page" %>
+<% style = "/css/Yourhome.css" %>
+
+<div class="page">
+    <section class="hero animate-on-scroll">
+        <div class="overlay"></div> <!-- Dark overlay for better text contrast -->
+        <div class="hero-content">
+            <h1>Find your perfect stay with <span class="highlight">Nestly</span></h1>
+            <p>Browse unique homes and experiences, carefully selected for you.</p>
+            <form class="search-form">
+                <input type="text" placeholder="Where are you going?" required />
+                <input type="date" required />
+                <input type="date" required />
+                <button type="submit">Search</button>
+            </form>
+        </div>
+    </section>
+    
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-us  animate-on-scroll">
+        <h2>Why Choose Nestly?</h2>
+        <div class="reasons">
+            <div class="reason">
+                <img src="https://cdn-icons-png.flaticon.com/512/2910/2910768.png" alt="Secure Payment" />
+                <h3>Secure Payments</h3>
+                <p>Your payment information is protected with industry-standard encryption.</p>
+            </div>
+            <div class="reason">
+                <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Verified Hosts" />
+                <h3>Verified Hosts</h3>
+                <p>Stay with trusted and verified hosts across the globe.</p>
+            </div>
+            <div class="reason">
+                <img src="https://cdn-icons-png.flaticon.com/512/5977/5977589.png" alt="24/7 Support" />
+                <h3>24/7 Support</h3>
+                <p>Our support team is here to help you anytime, anywhere.</p>
+            </div>
+        </div>
+    </section>
+</div>
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        observer.observe(el);
+    });
+</script>

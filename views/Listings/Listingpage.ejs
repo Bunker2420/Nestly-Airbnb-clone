@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Listing Page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="/css/listing.css"/>
+</head>
+
+<% layout('Layouts/BoilerPlate.ejs') %>
+<% title = "ListingPage" %>
+
+<body>
+<!-- Flash Messages -->
+<% if (success_msg && success_msg.length) { %>
+  <div class="flash success">
+    <span><%= success_msg %></span>
+    <button class="close-btn" onclick="this.parentElement.style.display='none'">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+<% } %>
+
+<% if (error_msg && error_msg.length) { %>
+  <div class="flash error">
+    <span><%= error_msg %></span>
+    <button class="close-btn" onclick="this.parentElement.style.display='none'">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+<% } %>
+
+<!-- Filter Section -->
+<div class="filters">
+  <div class="filter"><i class="fa-solid fa-fire"></i>Trending</div>
+  <div class="filter"><i class="fa-solid fa-bed"></i>Rooms</div>
+  <div class="filter"><i class="fa-solid fa-mountain-city"></i>Iconic city</div>
+  <div class="filter"><i class="fa-solid fa-mountain-sun"></i>Country side</div>
+  <div class="filter"><i class="fa-solid fa-person-swimming"></i>BeachSide</div>
+  <div class="filter"><i class="fa-solid fa-campground"></i>Camping</div>
+  <div class="filter"><i class="fa-solid fa-tractor"></i>FarmSide</div>
+  <div class="filter"><i class="fa-solid fa-snowman"></i>Snow Houses</div>
+</div>
+
+<!-- Listings -->
+<div class="container">
+    <% for (let list of listing) { %>
+      <a href="/listings/<%= list._id %>" class="ownpageclick">
+        <div class="card" data-aos="fade-up">
+          <img src="<%= list.image.url %>" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h3 class="card-title"><%= list.title %></h3>
+            <p><%= list.location %>, <%= list.country %></p>
+            <p>&#8377;<%= list.price.toLocaleString() %> / night</p>
+          </div>
+        </div>
+      </a>
+    <% } %>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+
+  setTimeout(() => {
+    const flashMessages = document.querySelectorAll('.flash');
+    flashMessages.forEach(flash => {
+      flash.style.transition = "opacity 0.5s ease";
+      flash.style.opacity = "0";
+      setTimeout(() => flash.remove(), 500);
+    });
+  }, 10000);
+</script>
+
+</body>
+</html>

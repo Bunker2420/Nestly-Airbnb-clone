@@ -1,0 +1,229 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+/* Navbar */
+.navbar {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo a {
+    font-size: 28px;
+    font-weight: 500;
+    text-decoration: none;
+    color: #333;
+}
+
+.navbar nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    background-image: url('https://images.unsplash.com/photo-1506748686219-8be5e9ffdd45?crop=entropy&cs=tinysrgb&fit=max&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDE0fHxsaWZlc3R5bGV8ZW58MHx8fHwxNjg2NzcxODAw&ixlib=rb-1.2.1&q=80&w=1080');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 20px;
+    text-align: center;
+    color: white;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5); /* semi-transparent black */
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.search-form {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.search-form input {
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    width: 220px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    background-color: white;
+    color: #333;
+}
+
+.search-form input::placeholder {
+    color: #888;
+}
+
+.search-form button {
+    padding: 12px 20px;
+    background-color: #ff5a5f;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.search-form button:hover {
+    background-color: #e0484d;
+}
+
+.hero h1 .highlight {
+    color: #ffd700;
+}
+
+
+/* Why Choose Us Section */
+.why-choose-us {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.why-choose-us h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.reasons {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.reason {
+    width: 30%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.reason img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.reason h3 {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.reason p {
+    font-size: 16px;
+    color: #777;
+}
+
+/* Featured Listings Section */
+.featured-listings {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.featured-listings h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.listing-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.listing-card {
+    width: 300px;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.listing-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.listing-info {
+    padding: 20px;
+}
+
+.listing-info h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.listing-info p {
+    font-size: 16px;
+    color: #777;
+}
+
+.listing-info .price {
+    font-size: 18px;
+    color: #ff5a5f;
+    font-weight: bold;
+}
+
+.listing-card:hover {
+    transform: scale(1.05);
+}
+
+/* Footer Section */
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+/* Entrance Animation Base */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease-out;
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}

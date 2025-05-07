@@ -1,0 +1,171 @@
+/* General Color Variables */
+:root {
+    --soft-pink: #ffb3b3;
+    --soft-pink-dark: #ff8c8c;
+    --soft-teal: #a7d8d8;
+    --white: #ffffff;
+    --light-gray: #f7f7f7;
+}
+
+/* Animation for Background Color Change */
+@keyframes backgroundChange {
+    0% {
+        background-color: var(--soft-teal);
+    }
+    50% {
+        background-color: var(--soft-pink);
+    }
+    100% {
+        background-color: var(--soft-teal);
+    }
+}
+
+/* Investor Hero Section */
+.investor-hero {
+    animation: backgroundChange 10s ease infinite; /* Background color change animation */
+    color: white;
+    padding: 100px 0; /* Increased padding for a bigger hero section */
+    text-align: center;
+}
+
+.investor-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    transition: color 0.5s ease;
+}
+
+.investor-hero p {
+    font-size: 1.2rem;
+    transition: color 0.5s ease;
+}
+
+/* Current Investor Section */
+.current-investor {
+    padding: 80px 20px; /* Increased padding for a larger section */
+    text-align: center;
+    background-color: var(--soft-pink);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.5s ease;
+    animation: backgroundChange 10s ease infinite; /* Background color change animation */
+}
+
+.current-investor h2 {
+    font-size: 2.8rem; /* Increased font size */
+    margin-bottom: 40px;
+    color: #333;
+}
+
+/* Investor Card Styling with Animation */
+.investor-card {
+    display: inline-block;
+    text-align: center;
+    background-color: var(--soft-pink-dark);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 500px;
+    margin-bottom: -150px;
+    animation: backgroundChange 10s ease infinite; /* Background color change animation */
+}
+
+/* Hover effect to change card color */
+.investor-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    animation: cardColorChange 2s ease infinite alternate; /* Faster animation on hover */
+}
+
+.investor-card img {
+    width: 100%;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    max-width: 300px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.investor-card h3 {
+    font-size: 1.7rem; /* Increased font size */
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.investor-card p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Collaboration Section */
+.collaboration {
+    padding: 80px 20px;
+    text-align: center;
+    background-color: var(--white);
+    transition: background-color 0.5s ease;
+    animation: backgroundChange 10s ease infinite; /* Background color change animation */
+}
+
+.collaboration h2 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.collaboration p {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.options form {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    transition: gap 0.3s ease;
+}
+
+.collab-btn {
+    background-color: var(--soft-teal);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.collab-btn:hover {
+    background-color: var(--soft-pink-dark);
+    transform: scale(1.05);
+}
+
+.collab-btn:focus {
+    outline: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .investor-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .investor-hero p {
+        font-size: 1rem;
+    }
+
+    .current-investor h2 {
+        font-size: 2rem;
+    }
+
+    .investor-card {
+        max-width: 90%;
+    }
+
+    .options {
+        flex-direction: column;
+        gap: 15px;
+    }
+}

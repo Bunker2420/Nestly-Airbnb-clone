@@ -1,0 +1,24 @@
+<nav class="navbar">
+  <div class="nav-container">
+    
+    <!-- Left group: Logo + Explore -->
+    <div class="nav-left">
+      <a href="/listings" class="logo"><i class="fas fa-feather-alt"></i> Nestly</a>
+      <div class="nav-links">
+        <a href="/listings"><i class="fas fa-list"></i>Explore</a>
+      </div>
+    </div>
+
+    <!-- Right aligned auth links -->
+    <div class="auth-links">
+      <a href="/listings/new"><i class="fas fa-plus-circle"></i>Nestly your Home</a>
+      <% if(!currUser) { %>
+        <a href="/SignUp"><i class="fas fa-user-plus"></i><b>Sign Up</b></a>
+        <a href="/login"><i class="fas fa-sign-in-alt"></i><b>Login</b></a>
+      <% } %>
+      <% if(currUser) { %>
+         <a href="/logout"><i class="fas fa-sign-out-alt"></i><b>Logout</b></a>
+      <% } %>
+    </div>
+  </div>
+</nav>

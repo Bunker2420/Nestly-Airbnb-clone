@@ -1,0 +1,144 @@
+/* anti.css */
+
+/* General Styles */
+body {
+    font-family: 'Helvetica', Arial, sans-serif;
+    background-color: #f9fafb;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  /* Header Styling */
+  .header {
+    padding: 3rem 0;
+    text-align: center;
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+  
+  .main-heading {
+    font-size: 3rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    background: linear-gradient(45deg, #ff5e57, #ff5e57);
+    -webkit-background-clip: text;
+    color: transparent;
+    margin: 0;
+  }
+  
+  /* Container */
+  .main-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f7f7f7, #ffffff);
+    margin-bottom: 10px;
+  }
+  
+  /* Section Styles */
+  .section {
+    margin-bottom: 2.5rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: linear-gradient(45deg, #3b82f6, #9333ea);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  
+  .section-text {
+    font-size: 1.125rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* List Styling */
+  .list {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .list li {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    padding-left: 1.25rem;
+    position: relative;
+  }
+  
+  .list li:before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.5rem;
+    color: #9333ea;
+  }
+  
+  /* Link Styling */
+  .link {
+    color: #3b82f6;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .link:hover {
+    color: #9333ea;
+    transform: scale(1.05);
+    text-decoration: underline;
+  }
+  
+  /* Animation for sections */
+  .section {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+  
+  .section:nth-child(odd) {
+    animation-delay: 0.2s;
+  }
+  
+  .section:nth-child(even) {
+    animation-delay: 0.4s;
+  }
+  
+  /* Fade-in animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 768px) {
+    .main-container {
+      padding: 1.5rem;
+    }
+    
+    .section-title {
+      font-size: 1.5rem;
+    }
+  
+    .section-text {
+      font-size: 1rem;
+    }
+  }
+  

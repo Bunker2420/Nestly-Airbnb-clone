@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+
+.header {
+    text-align: center;
+}
+
+.header h2 {
+    font-size: 28px;
+    color: #333;
+}
+
+.subheading {
+    color: #777;
+    font-size: 16px;
+    margin-top: 8px;
+}
+
+.policy-cards {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.policy-card {
+    background-color: #fafafa;
+    border-radius: 10px;
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.policy-card h3 {
+    font-size: 22px;
+    color: #444;
+}
+
+.policy-card p {
+    color: #777;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.select-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff5a5f;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.select-button:hover {
+    background-color: #e04e53;
+}
+
+.footer {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.footer p {
+    color: #777;
+}
+
+.footer a {
+    color: #ff5a5f;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}

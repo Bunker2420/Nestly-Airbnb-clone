@@ -1,0 +1,103 @@
+.company-container {
+    max-width: 1000px;
+    margin: 4rem auto;
+    padding: 3rem;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+  }
+  
+  .company-title {
+    font-size: 2.8rem;
+    font-weight: bold;
+    background: linear-gradient(to right, #7b1fa2, #00acc1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    animation: fadeIn 1s ease-in;
+  }
+  
+  .company-subtitle {
+    font-size: 1.1rem;
+    color: #444;
+    text-align: center;
+    margin-bottom: 2rem;
+    animation: fadeIn 1.2s ease-in;
+  }
+  
+  .company-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+  
+  .company-section h2 {
+    font-size: 1.5rem;
+    color: #6a1b9a;
+    margin-bottom: 0.8rem;
+  }
+  
+  .company-section p,
+  .company-section ul {
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  .company-section ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .company-section li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .company-footer {
+    text-align: right;
+    font-style: italic;
+    font-weight: bold;
+    margin-top: 2.5rem;
+    color: #8e24aa;
+    animation: fadeIn 2s ease-in;
+  }
+  
+  /* Animated background */
+  .animated-bg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: -1;
+    overflow: hidden;
+  }
+  
+  .animated-bg span {
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 50px;
+    background: rgba(0, 188, 212, 0.15);
+    border-radius: 50%;
+    animation: floatUp 10s infinite ease-in-out;
+  }
+  
+  .animated-bg span:nth-child(1) { left: 10%; animation-delay: 0s; }
+  .animated-bg span:nth-child(2) { left: 30%; animation-delay: 2s; }
+  .animated-bg span:nth-child(3) { left: 60%; animation-delay: 4s; }
+  .animated-bg span:nth-child(4) { left: 85%; animation-delay: 6s; }
+  
+  @keyframes floatUp {
+    0% { bottom: -60px; opacity: 0; }
+    50% { transform: scale(1.2); opacity: 0.6; }
+    100% { bottom: 110%; opacity: 0; }
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  

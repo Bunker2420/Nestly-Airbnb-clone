@@ -1,0 +1,13 @@
+<% layout('Layouts/BoilerPlate.ejs') %>
+<% title="Error" %>
+<% style="/css/error.css" %>
+
+<div class="error-container">
+  <div class="error-icon">
+    <img src="https://media.giphy.com/media/l41lFw057lAJQMwg0/giphy.gif
+    " alt="Error GIF">
+  </div>
+  <h1>Oops! Error: <%= status %></h1>
+  <p><%= message %></p>
+  <a href="/listings" class="back-link">⬅️ Go back to listings</a>
+</div>

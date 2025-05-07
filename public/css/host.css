@@ -1,0 +1,164 @@
+* p{
+  color: black;
+}
+.aircover-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 3rem 2rem;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .intro-section {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  
+  .gradient-text {
+    background: linear-gradient(to right, #FF5A5F, #FC6E51, #FFA534);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3s linear infinite;
+    background-size: 200% auto;
+  }
+  
+  .subtitle {
+    font-size: 1.25rem;
+    color: #555;
+  }
+  
+  .benefits-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+  
+  .benefit-card {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    text-align: center;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .benefit-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+  }
+  
+  .benefit-card .icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  
+  
+  .btn-explore {
+    background: linear-gradient(135deg, #ff5858, #f09819);
+    color: white;
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+    margin: auto;
+  }
+  
+  .btn-explore:hover {
+    background: linear-gradient(135deg, #f24545, #e08a00);
+    cursor: pointer;
+  }
+  
+  /* Floating Animated Background Shapes */
+  .floating-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+  }
+  
+  .floating-shapes span {
+    position: absolute;
+    display: block;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #ff5858, #ffc371);
+    opacity: 0.25;
+    border-radius: 50%;
+    animation: float 10s infinite ease-in-out;
+  }
+  
+  .floating-shapes span:nth-child(1) {
+    top: 10%;
+    left: 20%;
+    animation-delay: 0s;
+  }
+  
+  .floating-shapes span:nth-child(2) {
+    top: 50%;
+    left: 70%;
+    animation-delay: 2s;
+  }
+  
+  .floating-shapes span:nth-child(3) {
+    top: 80%;
+    left: 30%;
+    animation-delay: 4s;
+  }
+  
+  .floating-shapes span:nth-child(4) {
+    top: 30%;
+    left: 80%;
+    animation-delay: 6s;
+  }
+  
+  .floating-shapes span:nth-child(5) {
+    top: 60%;
+    left: 10%;
+    animation-delay: 8s;
+  }
+  
+  @keyframes float {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-30px) scale(1.1); }
+    100% { transform: translateY(0) scale(1); }
+  }
+  
+  /* Animations */
+  @keyframes shine {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+  }
+  
+  .fade-in {
+    animation: fadeIn 1.5s ease-in;
+  }
+  
+  .slide-up {
+    animation: slideUp 1.2s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  

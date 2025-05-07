@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Animated Signup Page</title>
+  <link rel="stylesheet" href="/css/signup.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Vanilla Tilt for hover-responsive tilt effect -->
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.0/dist/vanilla-tilt.min.js"></script>
+  <!-- JSConfetti for confetti effect -->
+  <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+</head>
+<body>
+ 
+
+  <div class="background-shapes">
+    <div class="shape shape1"></div>
+    <div class="shape shape2"></div>
+  </div>
+
+  <div class="nestly-heading">
+    <h1>Welcome to <span class="brand-name">Nestly</span></h1>
+    <p class="nestly-tagline typewriter-quote">Find your perfect stay — where every place feels like home.</p>
+    <form action="/listings">
+      <button class="list">All listings</button>
+    </form>
+  </div>
+
+  
+
+  <div class="signup-container" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.2">
+    <h2 class="gradient-text typewriter">Create Your Account</h2>
+    <% if (error_msg && error_msg.length) { %>
+      <div class="flash error">
+        <span><%= error_msg %></span>
+        <button class="close-btn" onclick="this.parentElement.style.display='none'">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    <% } %>
+    <p class="quote-text typewriter-quote">Escape the ordinary. Discover places where comfort meets charm.</p>
+    <form id="signup-form" action="/SignUp" method="post">
+      <div class="form-floating">
+        <input type="text" id="username" name="username" placeholder="Username" required />
+        
+      </div>
+      <div class="form-floating">
+        <input type="email" id="email" name="email" placeholder="Email" required />
+        
+      </div>
+      <div class="form-floating">
+        <input type="password" id="password" name="password" placeholder="Password" required />
+        
+      </div>
+      <div class="remember-forget">
+        <label><input type="checkbox" required /> I agree to the terms & conditions</label>
+      </div>
+      <button type="submit">Submit</button>
+      <div class="register-link">
+        <p>Already have an account? <a href="/login">Login</a></p>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    // Initialize Vanilla Tilt
+    VanillaTilt.init(document.querySelector(".signup-container"));
+
+    // Initialize JSConfetti
+    const jsConfetti = new JSConfetti();
+
+    // Handle form submission
+    document.getElementById('signup-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  jsConfetti.addConfetti({
+    emojis: ['🎉', '🌟', '🥳', '🎊', '✨', '🌈'],
+  });
+
+  setTimeout(() => {
+    e.target.submit(); // manually submit the form after animation
+  }, 1000); // adjust delay if needed
+});
+  </script>
+</body>
+</html>

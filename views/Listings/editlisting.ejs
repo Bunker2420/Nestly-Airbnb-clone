@@ -1,0 +1,37 @@
+  <% layout('Layouts/BoilerPlate.ejs') %>
+  <% title="Edit listing page" %>
+  <% style="/css/form.css" %>
+    <h1 class="text">Edit your listing</h1>
+    <form action="/listings/<%= id %>/edit" method="post" enctype="multipart/form-data">
+        <div class="form">
+            <div class="input-group">
+                <input type="text" name="title" id="title" required value="<%= list.title %>" />
+                <label for="title">Title</label>
+            </div>
+            <div class="input-group">
+                <textarea name="description" id="description" required placeholder=" "><%= list.description %></textarea>
+                <label for="description">Description</label>
+            </div>
+            <div>
+                <p style="color: orangered;margin-bottom: 5px;">Original Image:</p>
+                <img src="<%= list.image.url %>" alt="" style="width: 250px;height: 150px;">
+            </div>
+            <div class="input-group">
+                <input type="file" name="image" id="image" placeholder=" " class="form-control" value="Choose a new file" />
+                <label for="image">Upload listing Image</label>
+            </div>    
+            <div class="input-group">
+                <input type="number" name="price" id="price" required value="<%= list.price %>" />
+                <label for="price">Price (per night)</label>
+            </div>
+            <div class="input-group">
+                <input type="text" name="location" id="location" required value="<%= list.location %>" />
+                <label for="location">Location</label>
+            </div>
+            <div class="input-group">
+                <input type="text" name="country" id="country" required value="<%= list.country %>" />
+                <label for="country">Country</label>
+            </div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>

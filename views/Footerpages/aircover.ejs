@@ -1,0 +1,53 @@
+<% layout('Layouts/BoilerPlate.ejs') %>
+<% title = "aircover" %>
+<% style = "/css/aircover.css" %>
+
+<section class="aircover-container">
+  <div class="glass-card">
+    <h1 class="main-heading">Nestly AirCover</h1>
+    <p class="subtitle">Every stay includes free protection from the moment you book</p>
+
+    <div class="features-grid">
+      <div class="feature-box">
+        <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Booking Protection" class="icon" />
+        <h2>Booking Protection</h2>
+        <p>If your host cancels within 30 days of your stay, we’ll find you a similar or better place, or refund you.</p>
+      </div>
+      <div class="feature-box">
+        <img src="https://cdn-icons-png.flaticon.com/512/2910/2910791.png" alt="Check-in Guarantee" class="icon" />
+        <h2>Check-in Guarantee</h2>
+        <p>If you can't check in and the host can't resolve it, we’ll refund you or find you a new place.</p>
+      </div>
+      <div class="feature-box">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828640.png" alt="Listing Accuracy" class="icon" />
+        <h2>Listing Accuracy</h2>
+        <p>If the listing isn’t as advertised — like a missing bedroom — we’ll help you find a better place or refund you.</p>
+      </div>
+      <div class="feature-box">
+        <img src="https://cdn-icons-png.flaticon.com/512/1029/1029183.png" alt="24/7 Support" class="icon" />
+        <h2>24/7 Safety Support</h2>
+        <p>We provide real-time safety support 24/7 to help you feel secure during your stay.</p>
+      </div>
+    </div>
+
+    <div class="back-button-container">
+      <a href="/listings" class="back-btn">⬅ Back to Home</a>
+    </div>
+  </div>
+</section>
+
+<script>
+  // 🎉 Emoji Confetti on Load
+  window.addEventListener("load", () => {
+    for (let i = 0; i < 30; i++) {
+      const confetti = document.createElement("div");
+      confetti.className = "confetti";
+      confetti.style.left = Math.random() * 100 + "vw";
+      confetti.style.animationDuration = 2 + Math.random() * 3 + "s";
+      confetti.innerText = ["🎉", "✨", "🎈", "🎊"][Math.floor(Math.random() * 4)];
+      document.body.appendChild(confetti);
+
+      setTimeout(() => confetti.remove(), 5000);
+    }
+  });
+</script>
