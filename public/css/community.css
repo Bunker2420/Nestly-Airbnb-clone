@@ -1,3 +1,8 @@
+.main
+{
+  position: relative;
+  top: 84px;
+}
 .community-container {
     max-width: 1000px;
     margin: 0 auto;
@@ -127,12 +132,65 @@
     animation: slideInDown 0.7s ease-out;
   }
   
-  .glow-on-hover {
-    box-shadow: 0 0 0px rgba(127, 90, 240, 0.6);
-    transition: box-shadow 0.3s ease;
+ .glow-on-hover {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 0px rgba(127, 90, 240, 0.6);
+  transition: box-shadow 0.3s ease, color 0.3s ease;
+  margin-top: 40px;
+  z-index: 1;
+  border-radius: 12px;
+  color: #333;
+}
+
+/* Gradient Fill Effect */
+.glow-on-hover::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #ff8a00, #e52e71, #9b00e8);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.4s ease;
+  z-index: -1; /* 👈 Key change */
+}
+
+/* Hover: fill + white text */
+.glow-on-hover:hover {
+  color: white;
+}
+
+/* Animate fill */
+.glow-on-hover:hover::before {
+  transform: scaleY(1);
+}
+
+/* Ensure content stays on top of gradient */
+.glow-on-hover *, .glow-on-hover span, .glow-on-hover i {
+  position: relative;
+  z-index: 1;
+}
+@media (max-width:1092px) {
+  .main
+  {
+    top: 155px;
   }
-  
-  .glow-on-hover:hover {
-    box-shadow: 0 0 12px rgba(127, 90, 240, 0.9);
+  .margin
+  {
+    margin-bottom: 180px;
   }
+}
+@media (max-width:992px) {
+  .main
+  {
+    top: 217px;
+  }
+  .margin
+  {
+    margin-bottom: 270px;
+  }
+}
   

@@ -1,3 +1,8 @@
+.main
+{
+  position: relative;
+  top: 70px;
+}
 .terms-container {
     position: relative;
     max-width: 900px;
@@ -9,6 +14,7 @@
     box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
     z-index: 2;
     overflow: hidden;
+    margin-bottom: 100px;
   }
   
   .terms-header h1 {
@@ -125,6 +131,26 @@
       bottom: 100%;
       opacity: 0;
       transform: translateY(-200px) scale(1);
+    }
+  }
+  @media (max-width:1092px) {
+    .main
+    {
+      top: 148px;
+    }
+    .terms-container
+    {
+      margin-bottom: 180px;
+    }
+  }
+    @media (max-width:992px) {
+    .main
+    {
+      top: 200px;
+    }
+    .terms-container
+    {
+      margin-bottom: 240px;
     }
   }
   

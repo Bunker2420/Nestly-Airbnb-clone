@@ -34,5 +34,13 @@ const isOwner = (req, res, next) => {
     next();
 };
 
+function isAdminLoggedIn(req, res, next) {
+    if (req.isAuthenticated() && req.user instanceof Admin) {
+        return next();
+    }
+    req.flash('error', 'You must be logged in as an Admin');
+    res.redirect('/admin/login');
+}
 
-module.exports = { isLoggedIn, redirectURL, validReview ,isOwner };
+
+module.exports = { isLoggedIn, redirectURL, validReview ,isOwner , isAdminLoggedIn};

@@ -1,9 +1,12 @@
 * p{
   color: black;
 }
+.main
+{
+  position: relative;
+  top: 80px;
+}
 .aircover-container {
-    max-width: 1200px;
-    margin: auto;
     padding: 3rem 2rem;
     position: relative;
     z-index: 2;
@@ -160,5 +163,19 @@
   @keyframes slideUp {
     from { opacity: 0; transform: translateY(40px); }
     to { opacity: 1; transform: translateY(0); }
+  }
+  @media (max-width:1092px) {
+    .main
+    {
+      top: 150px;
+      margin-bottom: 100px;
+    }
+  }
+  @media (max-width:992px) {
+    .main
+    {
+      top: 190px;
+      margin-bottom: 150px;
+    }
   }
   

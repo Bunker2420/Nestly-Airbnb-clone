@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel - Feedback Dashboard</title>
+    <link rel="stylesheet" href="/css/admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="admin-header">
+        <h1>👋 Welcome, Admin!</h1>
+        <p class="subheading">Here are the latest feedbacks from your users</p>
+        <form action="/admin/logout">
+            <button class="admin-logout-button">logout</button>
+        </form>
+    </header>
+
+    <main class="feedback-container">
+        <% if (feedbacks.length === 0) { %>
+            <p class="no-feedback">No feedbacks submitted yet.</p>
+        <% } else { %>
+            <% feedbacks.forEach(feedback => { %>
+                <div class="feedback-card">
+                    <h2><%= feedback.Author.username %> (<%= feedback.Author.email %>)</h2>
+                    <p><strong>⭐ Rating:</strong> <%= feedback.rating %>/10</p>
+                    <% if(feedback.reasonForPoorRating) { %>
+                        <p><strong>😟 Reason for Poor Rating:</strong> <%= feedback.reasonForPoorRating %></p>
+                    <% } %>
+                    <p><strong>💡 Suggestion:</strong> <%= feedback.Suggestion %></p>
+                    <p><strong>❤️ Liked Feature:</strong> <%= feedback.Feature %></p>
+                    <p><strong>📢 Recommend Us?:</strong> <%= feedback.Recommend %></p>
+                    <p class="date">🕒 Submitted: <%= feedback.submittedAt.toDateString() %></p>
+                </div>
+            <% }) %>
+        <% } %>
+    </main>
+</body>
+</html>

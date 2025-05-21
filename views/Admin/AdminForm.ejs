@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Animated Signup Page</title>
+  <title>Admin Login Page</title>
   <link rel="stylesheet" href="/css/signup.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- Vanilla Tilt for hover-responsive tilt effect -->
@@ -20,54 +20,44 @@
   </div>
 
   <div class="signup-container" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.2">
-    <h1 class="gradient-text typewriter">Login</h1>
-    <% if (error_msg && error_msg.length) { %>
-        <div class="flash error">
-          <span><%= error_msg %></span>
-          <button class="close-btn" onclick="this.parentElement.style.display='none'">
-            <i class="fas fa-times"></i>
-          </button>
-        </div>
-      <% } %>
+    <h1 class="gradient-text typewriter">Admin Login</h1>
+  <% if (error_msg && error_msg.length) { %>
+      <div class="flash error">
+        <span><%= error_msg[0] %></span>
+        <button class="close-btn" onclick="this.parentElement.style.display='none'">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    <% } %>
+
     <p class="quote-text typewriter-quote">Escape the ordinary. Discover places where comfort meets charm.</p>
-    <form id="signup-form" action="/login" method="post">
+   <form id="signup-form" action="/admin/login" method="POST">
       <div class="form-floating">
         <input type="text" id="username" name="username" placeholder="Username" required />
-        
       </div>
       <div class="form-floating">
         <input type="password" id="password" name="password" placeholder="Password" required />
-        
-      </div>
-      <div class="remember-forget">
-        <label><input type="checkbox" required /> I agree to the terms & conditions</label>
       </div>
       <button type="submit">Login</button>
-      <div class="register-link">
-        <p>Don't have an account? <a href="/SignUp">Register</a></p>
-      </div>
-    </form>
+  </form>
+
   </div>
 
   <div class="nestly-heading">
     <h1>Welcome to <span class="brand-name">Nestly</span></h1>
     <p class="nestly-tagline typewriter-quote">Find your perfect stay — where every place feels like home.</p>
     <div style="display: flex;justify-content: space-evenly;">
-      <div>
-        <form action="/listings">
-          <button class="list">All listings</button>
-        </form>
-      </div>
-      <div>
-        <form action="/admin/login">
-          <button class="list">
-            AdminLogin
-          </button>
-        </form>
-      </div>
+        <div>
+            <form action="/listings">
+                <button class="list">All listings</button>
+            </form>
+        </div>
+        <div>
+            <form action="/login">
+                <button class="list">UserLogin</button>
+            </form>
+        </div>
     </div>
-    
-    
   </div>
   <script>
     // Initialize Vanilla Tilt
@@ -78,7 +68,6 @@
 
     // Handle form submission
     document.getElementById('signup-form').addEventListener('submit', function(e) {
-  e.preventDefault();
 
   jsConfetti.addConfetti({
     emojis: ['🎉', '🌟', '🥳', '🎊', '✨', '🌈'],

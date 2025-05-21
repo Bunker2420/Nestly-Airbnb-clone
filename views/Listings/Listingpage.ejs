@@ -23,6 +23,8 @@
   </div>
 <% } %>
 
+<div class="result"></div>
+
 <!-- Filter Section -->
 <div class="filters">
   <div class="filter"><i class="fa-solid fa-fire"></i>Trending</div>
@@ -43,8 +45,11 @@
           <img src="<%= list.image.url %>" class="card-img-top" alt="...">
           <div class="card-body">
             <h3 class="card-title"><%= list.title %></h3>
-            <p><%= list.location %>, <%= list.country %></p>
+            <p class="country"><%= list.location %>, <%= list.country %></p>
             <p>&#8377;<%= list.price.toLocaleString() %> / night</p>
+            <form action="/listings/<%= list._id %>">
+              <button class="book-now-btn">Book Now</button>
+            </form>  
           </div>
         </div>
       </a>
@@ -64,6 +69,6 @@
     });
   }, 10000);
 </script>
-
+<% script="/js/search.js" %>
 </body>
 </html>

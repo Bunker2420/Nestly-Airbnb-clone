@@ -1,12 +1,5 @@
 /* General Styles */
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f9;
-    color: #333;
-  }
-  
+
   /* Color Palette */
   :root {
     --primary-color: #3498db;
@@ -17,6 +10,12 @@ body {
     --text-light: #fff;
     --text-dark: #333;
     --shadow: rgba(0, 0, 0, 0.1);
+  }
+
+  .main
+  {
+    position: relative;
+    top: 85px;
   }
   
   /* Hero Section */
@@ -39,26 +38,59 @@ body {
     margin-bottom: 20px;
   }
   
-  .btn-primary {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 12px 30px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 1.1em;
-    box-shadow: 0 4px 6px var(--shadow);
-  }
-  
-  .btn-primary:hover {
-    background-color: #2980b9;
-    transform: translateY(-3px);
-  }
-  
-  .btn-primary:active {
-    background-color: #1f5a7e;
-    transform: translateY(1px);
-  }
-  
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  background-color: white;
+  color: #2d2d2d;
+  padding: 12px 30px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1.1em;
+  font-weight: 600;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  transition: color 0.3s ease, transform 0.3s ease;
+  z-index: 0;
+}
+
+/* Gradient fill background */
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, #43e97b, #38f9d7, #00c6ff);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.4s ease;
+  z-index: 0;
+  border-radius: 5px;
+}
+
+/* On hover: fill + text white */
+.btn-primary:hover::before {
+  transform: scaleY(1);
+}
+
+.btn-primary:hover {
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* Keep text above gradient */
+.btn-primary span {
+  position: relative;
+  z-index: 1;
+}
+
+/* Optional: pressed */
+.btn-primary:active {
+  transform: translateY(1px);
+}
+
   /* Stats Section */
   .stats {
     display: flex;
@@ -132,27 +164,58 @@ body {
     margin-bottom: 30px;
   }
   
-  .cta-buttons a {
-    background-color: var(--accent-color);
-    color: white;
-    padding: 12px 25px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 1.1em;
-    margin: 10px;
-    box-shadow: 0 4px 8px var(--shadow);
-  }
-  
-  .cta-buttons a:hover {
-    background-color: #c0392b;
-    transform: translateY(-3px);
-  }
-  
-  .cta-buttons a:active {
-    background-color: #922b21;
-    transform: translateY(1px);
-  }
-  
+ .btn-secondary {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  background-color: white;
+  color: #2d2d2d;
+  padding: 12px 30px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1.1em;
+  font-weight: 600;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  transition: color 0.3s ease, transform 0.3s ease;
+  z-index: 0;
+}
+
+/* Gradient fill background */
+.btn-secondary::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, #ff6a00, #ee0979);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.4s ease;
+  z-index: 0;
+  border-radius: 5px;
+}
+
+/* On hover: fill + text white */
+.btn-secondary:hover::before {
+  transform: scaleY(1);
+}
+
+.btn-secondary:hover {
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* Keep text above gradient */
+.btn-secondary span {
+  position: relative;
+  z-index: 1;
+}
+
+/* Optional: pressed */
+.btn-secondary:active {
+  transform: translateY(1px);
+}
   /* Stories Section */
   .stories {
     display: flex;
@@ -193,6 +256,7 @@ body {
     text-align: center;
     border-radius: 8px;
     box-shadow: 0 4px 8px var(--shadow);
+    margin-bottom: 140px;
   }
   
   .partners p {
@@ -201,4 +265,23 @@ body {
     max-width: 800px;
     margin: 0 auto;
   }
-  
+  @media (max-width:1092px) {
+    .main
+    {
+      top: 155px;
+    }
+    .partners
+    {
+      margin-bottom: 180px;
+    }
+  }
+   @media (max-width:992px) {
+    .main
+    {
+      top: 218px;
+    }
+    .partners
+    {
+      margin-bottom: 260px;
+    }
+  }

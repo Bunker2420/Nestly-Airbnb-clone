@@ -3,11 +3,13 @@
     padding: 0;
     box-sizing: border-box;
 }
-
-
+.main
+{
+    position: relative;
+    top: 80px;
+    margin-bottom: 120px;
+}
 .container {
-    max-width: 1000px;
-    margin: 0 auto;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -88,4 +90,18 @@
 
 .footer a:hover {
     text-decoration: underline;
+}
+@media (max-width:1092px) {
+    .main
+    {
+        top: 140px;
+        margin-bottom: 180px;
+    }
+}
+@media (max-width:992px) {
+    .main
+    {
+        top: 200px;
+        margin-bottom: 230px;
+    }
 }

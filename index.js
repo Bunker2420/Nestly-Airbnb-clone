@@ -19,7 +19,9 @@ const flash = require('connect-flash');
 const passport = require('passport');
 const  LocalStrategy = require('passport-local');
 const User = require('./Models/UserSchema.js');
-const Controller = require('./Controllers/Users.js')
+const Controller = require('./Controllers/Users.js');
+const Admin = require('./Models/AdminSchema');
+console.log('Admin model:', Admin);
 
 
 app.use(methodOverride('_method'));
@@ -81,10 +83,43 @@ app.use(passport.initialize());
 // Integrating the passport with session to store the user
 app.use(passport.session());
 // IMPLEMENTING THE LOCAL STRATEGY
-passport.use(new LocalStrategy(User.authenticate()));
+passport.use('user-local', new LocalStrategy(User.authenticate()));
+// Admin Strategy
+passport.use('admin-local', new LocalStrategy({
+    usernameField: 'username'
+}, Admin.authenticate()));
+
 // Serializing and deserializing the users
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+passport.serializeUser((user, done) => {
+    console.log('SERIALIZE:', user); // 👈 Check what's actually coming in
+    const role = user.role;
+    if (!role) {
+        console.log('Role is missing!');
+    }
+    done(null, { id: user.id, type: role === 'admin' ? 'Admin' : 'User' });
+});
+
+
+passport.deserializeUser(async (obj, done) => {
+    console.log('DESERIALIZE:', obj); // 👈 See what's stored in session
+    try {
+        if (obj.type === 'Admin') {
+            const admin = await Admin.findById(obj.id);
+            console.log('ADMIN FOUND:', admin); // 👈 This should not be undefined
+            done(null, admin);
+        } else {
+            const user = await User.findById(obj.id);
+            console.log('USER FOUND:', user);
+            done(null, user);
+        }
+    } catch (err) {
+        console.error('ERROR in deserialize:', err);
+        done(err, null);
+    }
+});
+
+
+
 // Passport setup is completed with express
 
 // Leaning how passport stores the user information what methods are used.....
@@ -121,12 +156,19 @@ app.use((req,res,next)=>{
     // error
     res.locals.error_msg = req.flash('error');
     res.locals.currUser = req.user;
+    console.log(res.locals.currUser);
     next();
 });
+
+
 
 app.get('/',(req,res)=>{
     res.redirect('/listings')
 });
+
+const adminRoute = require('./routes/admin.js')
+app.use('/admin',adminRoute)
+
 // useed express.router for user page
 const userroute = require('./routes/user.js');
 app.use('/SignUp',userroute);

@@ -11,7 +11,7 @@ router.get('/',(req,res)=>{
     res.render('Users/Login.ejs');
 });
 
-router.post('/',redirectURL,passport.authenticate("local",{failureRedirect:"/login",failureFlash:true})
+router.post('/',redirectURL,passport.authenticate("user-local",{failureRedirect:"/login",failureFlash:true})
           ,wrapAsync(Controller.LoggingIn));  
 
 module.exports = router;

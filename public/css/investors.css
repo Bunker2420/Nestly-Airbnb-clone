@@ -7,6 +7,7 @@
     --light-gray: #f7f7f7;
 }
 
+
 /* Animation for Background Color Change */
 @keyframes backgroundChange {
     0% {
@@ -18,6 +19,12 @@
     100% {
         background-color: var(--soft-teal);
     }
+}
+
+.main
+{
+    position: relative;
+    top: 85px;
 }
 
 /* Investor Hero Section */
@@ -105,6 +112,7 @@
     background-color: var(--white);
     transition: background-color 0.5s ease;
     animation: backgroundChange 10s ease infinite; /* Background color change animation */
+    margin-bottom: 120px;
 }
 
 .collaboration h2 {
@@ -127,6 +135,8 @@
 }
 
 .collab-btn {
+    position: relative;
+    overflow: hidden;
     background-color: var(--soft-teal);
     color: white;
     border: none;
@@ -134,17 +144,47 @@
     border-radius: 30px;
     font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: color 0.3s ease, transform 0.3s ease;
+    z-index: 1;
+}
+
+/* Gradient Background Fill Effect */
+.collab-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to top, #e52e71, #ff8a00, #9b00e8);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.4s ease;
+    z-index: -1;
+    border-radius: 30px; /* match button shape */
+}
+
+/* Hover Effect */
+.collab-btn:hover::before {
+    transform: scaleY(1);
+    transform-origin: bottom;
 }
 
 .collab-btn:hover {
-    background-color: var(--soft-pink-dark);
+    color: white;
     transform: scale(1.05);
+}
+
+/* Ensure content stays above gradient */
+.collab-btn span, .collab-btn i {
+    position: relative;
+    z-index: 1;
 }
 
 .collab-btn:focus {
     outline: none;
 }
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -167,5 +207,25 @@
     .options {
         flex-direction: column;
         gap: 15px;
+    }
+}
+@media (max-width:1092px) {
+    .main
+    {
+        top: 154px;
+    }
+    .collaboration
+    {
+        margin-bottom: 200px;
+    }
+}
+@media (max-width:992px) {
+    .main
+    {
+        top: 218px;
+    }
+    .collaboration
+    {
+        margin-bottom: 260px;
     }
 }

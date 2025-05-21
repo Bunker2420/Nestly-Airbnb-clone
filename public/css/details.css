@@ -1,6 +1,11 @@
+.main
+{
+  position: relative;
+  top: 120px;
+}
+
 .company-container {
-    max-width: 1000px;
-    margin: 4rem auto;
+    margin: 0 auto;
     padding: 3rem;
     border-radius: 25px;
     background: rgba(255, 255, 255, 0.15);
@@ -9,6 +14,7 @@
     position: relative;
     z-index: 2;
     overflow: hidden;
+    margin-bottom: 150px;
   }
   
   .company-title {
@@ -99,5 +105,25 @@
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
+  }
+  @media (max-width:1092px) {
+    .main
+    {
+      top: 180px;
+    }
+    .company-container
+    {
+      margin-bottom: 220px;
+    }
+  }
+    @media (max-width:992px) {
+    .main
+    {
+      top: 240px;
+    }
+    .company-container
+    {
+      margin-bottom: 270px;
+    }
   }
   

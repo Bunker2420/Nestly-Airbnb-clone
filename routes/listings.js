@@ -1,5 +1,3 @@
-
-
 const express = require('express');
 const router =  express.Router();
 const wrapAsync = require('../utils/wrapAsync.js');
@@ -10,9 +8,33 @@ const { isLoggedIn, redirectURL, isOwner } = require('../Middleware/middleware.j
 const Controller = require('../Controllers/Listings');
 const multer = require('multer');
 const {storage} = require('../cloudConfig.js');
+const { route } = require('./admin.js');
 const upload = multer({ storage });
+const FeedBack = require('../Models/FeedBackSchema.js');
 
+router.get('/feedback',isLoggedIn,redirectURL,wrapAsync(async(req,res)=>{
+    res.render('Admin/AdminFeedback.ejs')
+}));
 
+router.post('/feedback',wrapAsync(async(req,res)=>{
+    let rating = req.body.rating;
+    let Suggestion = req.body.Suggestion;
+    let reasonForPoorRating = req.body.reasonForPoorRating;
+    let Feature = req.body.Feature;
+    let Recommend = req.body.Recommend;
+    let store = await FeedBack.create({
+        Author:req.user._id,
+        rating:rating,
+        Suggestion:Suggestion,
+        Feature:Feature,
+        Recommend:Recommend,
+        reasonForPoorRating:reasonForPoorRating,
+    })
+    await store.save();
+    console.log(store);
+    req.flash('success',"Thankyou for your valuable feedback. You Successfully submitted the form");
+    res.redirect('/listings');
+}));
 
 router.get('/',wrapAsync(Controller.index));
 

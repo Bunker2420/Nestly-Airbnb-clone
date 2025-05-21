@@ -1,5 +1,10 @@
+.main
+{
+  position: relative;
+  top: 85px;
+}
+
 .newsroom-container {
-    max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
   }
@@ -121,6 +126,7 @@
   
   .fade-in {
     animation: fadeIn 0.8s ease forwards;
+    margin-bottom: 120px;
   }
   
   .zoom-in {
@@ -130,4 +136,23 @@
   .slide-up {
     animation: slideInDown 0.7s ease-out;
   }
-  
+  @media (max-width:1092px) {
+    .main
+    {
+      top: 154px;
+    }
+    .fade-in
+    {
+      margin-bottom: 200px;
+    }
+  }
+   @media (max-width:992px) {
+    .main
+    {
+      top: 217px;
+    }
+    .fade-in
+    {
+      margin-bottom: 260px;
+    }
+  }

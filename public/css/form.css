@@ -1,12 +1,11 @@
 /* Body styling */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f6f8;
-    margin: 0;
-    padding: 0;
-}
 
 /* Heading */
+.main
+{
+    position: relative;
+    top: 90px;
+}
 .text {
     text-align: center;
     margin: 40px 0 20px;
@@ -14,12 +13,20 @@ body {
     color: #333;
 }
 
+.Heading
+{
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+.Heading h1{
+    text-align: center;
+}
 /* Centering form */
 form {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 15px;
+    margin-bottom: 150px;
 }
 
 /* Animation for form entry */
@@ -141,12 +148,117 @@ textarea {
     display: block;
 }
 
+/* Style for radio group container */
+.input-radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Style for the question */
+.radio-question {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+/* Style for radio options */
+.radio-options {
+    display: flex;
+    gap: 2rem;
+    margin-left: 10px;
+}
+
+/* Style individual radio labels */
+.radio-options label {
+    font-size: 1rem;
+    color: #444;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.input-rating-group {
+  margin-bottom: 1rem;
+}
+
+.starability-slot legend {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.rating-stars {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.rating-stars input[type="radio"] {
+  display: none;
+}
+
+.rating-stars label {
+  font-size: 1.2rem;
+  background-color: #eee;
+  color: #333;
+  padding: 0.5rem 0.7rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.rating-stars label:hover {
+  background-color: #ffc107;
+  color: white;
+  transform: scale(1.1);
+}
+
+.rating-stars input[type="radio"]:checked + label {
+  background-color: #ff6f3c;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 0 8px rgba(255, 111, 60, 0.6);
+}
 
 
-/* Responsive */
-@media screen and (max-width: 768px) {
+
+
+@media (max-width: 1094px) {
+     .form {
+        width: 85%;
+        padding: 20px;
+        margin-bottom: 80px;
+    }
+    .main{
+        top: 170px;
+    }
+}
+
+@media (max-width: 992px) {
+     .form {
+        width: 85%;
+        padding: 20px;
+        margin-bottom: 90px;
+    }
+    .main{
+        top: 220px;
+    }
+}
+
+
+@media  (max-width: 768px) {
     .form {
         width: 85%;
         padding: 20px;
+        margin-bottom: 100px;
     }
 }
+
+
+
+

@@ -1,11 +1,10 @@
 /* General Styling */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f7f7f7;
-    color: #333;
-    margin: 0;
-    padding: 0;
-  }
+
+.main
+{
+  position: relative;
+  top: 85px;
+}
   
   .container {
     width: 80%;
@@ -151,6 +150,7 @@ body {
   
   /* Feedback Section */
   .feedback-section {
+    position: relative;
     text-align: center;
     padding: 50px 20px;
     background-color: #fff;
@@ -158,6 +158,7 @@ body {
     margin-top: 50px;
     padding-left: 20px;
     padding-right: 20px;
+    margin-bottom: 100px;
   }
   
   .feedback-btn {
@@ -225,6 +226,33 @@ body {
     .feedback-btn {
       width: 45%;
       margin: 10px 5%;
+    }
+  }
+
+  @media (max-width:1092px) {
+    .main
+    {
+      top: 155px;
+    }
+  }
+  @media (max-width:992px) {
+    .main
+    {
+      top: 217px;
+    }
+    .feedback-section
+    {
+      bottom: 80px;
+    }
+  }
+   @media (max-width:576px) {
+    .main
+    {
+      top: 205px;
+    }
+    .feedback-section
+    {
+      bottom: 80px;
     }
   }
   

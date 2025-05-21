@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+.main
+{
+    position: relative;
+    top: 100px;
+}
 
 .container {
     margin: auto;
@@ -13,8 +18,8 @@
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     max-width: 600px;
+    margin-bottom: 130px;
 }
-
 .content h1 {
     font-size: 36px;
     color: #ff5a5f;
@@ -55,4 +60,24 @@
 
 .back-btn:hover {
     background-color: #e04e53;
+}
+@media (max-width:1092px) {
+    .main
+    {
+        top: 170px;
+    }
+    .container
+    {
+        margin-bottom: 200px;
+    }
+}
+@media (max-width:992px) {
+    .main
+    {
+        top: 230px;
+    }
+    .container
+    {
+        margin-bottom: 260px;
+    }
 }

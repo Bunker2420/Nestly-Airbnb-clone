@@ -1,3 +1,8 @@
+.main
+{
+  position: relative;
+  top: 95px;
+}
 .card {
     display: flex;
     flex-direction: row;
@@ -62,6 +67,19 @@
     font-weight: 600;   
 }
 
+.booking-thankyou {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #ff6a00;           /* matches your orange theme */
+  background: #fff4e6;      /* very light warm background */
+  padding: 15px 20px;
+  border-left: 5px solid #ff6a00;
+  border-radius: 8px;
+  max-width: 500px;
+  margin: 20px auto;
+  box-shadow: 0 4px 6px rgba(255, 106, 0, 0.15);
+  line-height: 1.5;
+  font-weight: 600;
+}
 
 form {
     display: inline-block;
@@ -301,6 +319,7 @@ button:hover {
   border-radius: 20px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   animation: fadeIn 1s ease-in-out;
+  margin-bottom: 125px;
 }
 
 /* Review Form Inputs and Labels */
@@ -398,6 +417,8 @@ In your CSS file */
     align-items: center;
     font-weight: 500;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    top: 100px;
   }
   
   .flash .close-btn {
@@ -440,4 +461,22 @@ In your CSS file */
     color: #491217;
   }
   
+  @media (max-width: 1145px) {
+    .main{
+      top: 170px;
+    }    
+    .review-section{
+      margin-bottom: 200px;
+    }
+  }
+
+   @media (max-width: 995px) {
+    .main{
+      top: 230px;
+    }    
+    .review-section
+    {
+      margin-bottom: 250px;
+    }
+  }
   

@@ -8,7 +8,8 @@ const SigningUp = async(req,res)=>{
         let password = req.body.password; // extracting user information from form
         let store = new User({
             email:email,
-            username:username
+            username:username,
+            role:"User"
         });
         let user = await User.register(store,password); // storing it in database
         req.login(user,(err)=>{

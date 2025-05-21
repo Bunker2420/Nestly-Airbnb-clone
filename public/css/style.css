@@ -14,172 +14,249 @@ body {
   background-color: #ffffff47;
 }
 
-/* Navbar container */
+
+/* FIXED AND ROUNDED NAVBAR */
+/* FIXED AND ROUNDED NAVBAR */
 .navbar {
-  background-color: #fff;
-  border-bottom: 1px solid #ddd;
-  padding: 1rem 2rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 1000;
-  animation: slideInDown 0.6s ease-out;
-}
-
-/* Slide-in animation */
-@keyframes slideInDown {
-  0% {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-/* Container layout */
-.nav-container {
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  width: 95%;
   max-width: 1200px;
-  margin: 0 auto;
+  border-radius: 32px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+  padding: 16px 30px;
+  z-index: 999;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Poppins', sans-serif;
+  height: auto;
 }
 
-/* Left group: logo + nav links */
+/* NAV CONTAINER FLEX */
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* LEFT SIDE */
 .nav-left {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 /* Logo */
 .logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #FF385C;
+  text-decoration: none;
   display: flex;
   align-items: center;
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: #e63946;
-  text-decoration: none;
-  transition: all 0.3s ease;
+  gap: 8px;
 }
 
-.logo i {
-  margin-right: 8px;
-  animation: float 2.5s ease-in-out infinite;
+/* Links */
+.nav-link {
+  position: relative;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 25px;
+  overflow: hidden;
+  z-index: 1;
+  color: #333;
   transition: color 0.3s ease;
 }
 
-.logo:hover {
-  color: #ff5a6f;
-  animation: glow 0.8s ease-in-out infinite, scaleUp 0.3s ease-in-out;
+.nav-link::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 0%;
+  width: 100%;
+  background-color: #FF385C;
+  z-index: -1;
+  transition: height 0.4s ease;
 }
 
-.logo:hover i {
-  color: #e63946;
+.nav-link:hover::before {
+  height: 100%;
 }
 
-/* Animations */
-@keyframes float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
-  100% {
-    transform: translateY(0);
-  }
+.nav-link:hover {
+  color: white;
 }
 
-@keyframes glow {
-  0% {
-    text-shadow: 0 0 5px #e63946;
-  }
-  50% {
-    text-shadow: 0 0 20px #ff5a6f;
-  }
-  100% {
-    text-shadow: 0 0 5px #e63946;
-  }
-}
-
-@keyframes scaleUp {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.1);
-  }
-}
-
-/* Navigation links beside logo */
-.nav-links {
-  display: flex;
-}
-
-.nav-links a {
+/* SEARCH */
+.nav-search {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  padding: 0.5rem 0.75rem;
-  border-radius: 5px;
-  transition: background-color 0.2s ease;
+  gap: 10px;
+  border: 1px solid #ddd;
+  padding: 5px 10px;
+  border-radius: 25px;
+  background: white;
+  transition: box-shadow 0.3s ease;
 }
 
-.nav-links a:hover {
-  background-color: #f2f2f2;
-  color: #ff385c;
+.nav-search input {
+  border: none;
+  outline: none;
+  padding: 10px 15px;
+  border-radius: 25px;
+  font-size: 14px;
+  width: 220px;
 }
 
-/* Right-side auth links */
+.nav-search button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 25px;
+  background: #FF385C;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.3s ease;
+}
+
+.nav-search button i {
+  font-size: 14px;
+}
+
+.nav-search button:hover {
+  background-color: #e03152;
+}
+
+/* AUTH LINKS */
+.auth-links-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 25px;
+  padding: 8px 14px;
+  gap: 12px;
+}
+
 .auth-links {
   display: flex;
-  gap: 1rem;
   align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 .auth-links a {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  text-decoration: none;
-  color: #333;
+  position: relative;
   font-weight: 500;
-  padding: 0.5rem 0.75rem;
-  border-radius: 5px;
-  transition: background-color 0.2s ease;
+  padding: 8px 14px;
+  border-radius: 25px;
+  color: #333;
+  text-decoration: none;
+  overflow: hidden;
+  transition: color 0.3s ease;
+}
+
+.auth-links a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 0%;
+  width: 100%;
+  background-color: #FF385C;
+  z-index: -1;
+  transition: height 0.4s ease;
+}
+
+.auth-links a:hover::before {
+  height: 100%;
 }
 
 .auth-links a:hover {
-  background-color: #f2f2f2;
-  color: #ff385c;
+  color: white;
 }
 
-/* Responsive layout */
-@media (max-width: 768px) {
+/* Logout Button */
+.admin-logout-button {
+  background: linear-gradient(to right, #ff5a5f, #ff385c);
+  color: white !important;
+  padding: 8px 16px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.2s ease;
+}
+
+.admin-logout-button:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 992px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 16px;
+  }
+
   .nav-container {
     flex-direction: column;
     align-items: flex-start;
-    gap: 1rem;
+    gap: 20px;
   }
 
-  .nav-left,
-  .nav-links,
-  .auth-links {
+  .nav-left {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 15px;
+  }
+
+  .nav-search input {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .auth-links-wrapper {
     flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .auth-links {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 576px) {
+  .nav-search input {
     width: 100%;
   }
 
-  .nav-links a,
-  .auth-links a {
-    width: 100%;
-    padding: 0.6rem;
+  .nav-link, .auth-links a {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+
+  .nav-search button {
+    padding: 8px 14px;
+  }
+
+  .logo {
+    font-size: 1.2rem;
   }
 }
 
@@ -304,6 +381,7 @@ footer {
     color: #ff385c;
     text-decoration: underline;
 }
+
 
   
   

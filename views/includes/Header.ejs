@@ -1,24 +1,31 @@
 <nav class="navbar">
   <div class="nav-container">
-    
-    <!-- Left group: Logo + Explore -->
+    <!-- Left -->
     <div class="nav-left">
       <a href="/listings" class="logo"><i class="fas fa-feather-alt"></i> Nestly</a>
-      <div class="nav-links">
-        <a href="/listings"><i class="fas fa-list"></i>Explore</a>
-      </div>
+      <a href="/listings" class="nav-link" style="margin-right: 5px;">Explore</a>
     </div>
 
-    <!-- Right aligned auth links -->
-    <div class="auth-links">
-      <a href="/listings/new"><i class="fas fa-plus-circle"></i>Nestly your Home</a>
-      <% if(!currUser) { %>
-        <a href="/SignUp"><i class="fas fa-user-plus"></i><b>Sign Up</b></a>
-        <a href="/login"><i class="fas fa-sign-in-alt"></i><b>Login</b></a>
-      <% } %>
-      <% if(currUser) { %>
-         <a href="/logout"><i class="fas fa-sign-out-alt"></i><b>Logout</b></a>
-      <% } %>
+    <!-- Center: Search -->
+     <DIV class="nav-search">
+      <input type="text" name="q" placeholder="Search by city or country..." class="Search" required />
+      <button type="submit" class="btn">
+        <i class="fas fa-search"></i>
+      </button>
+     </DIV>
+
+    <!-- Right: Auth Links -->
+    <div class="auth-links-wrapper">
+      <div class="auth-links">
+        <a href="/listings/new" class="nav-link">Nestly your Home</a>
+        <a href="/listings/feedback" class="nav-link">Feedback</a>
+        <% if (!currUser) { %>
+          <a href="/SignUp" class="nav-link">Sign Up</a>
+          <a href="/login" class="nav-link">Login</a>
+        <% } else { %>
+          <a href="/logout" class="admin-logout-button">Logout</a>
+        <% } %>
+      </div>
     </div>
   </div>
 </nav>

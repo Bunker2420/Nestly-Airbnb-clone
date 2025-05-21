@@ -22,6 +22,7 @@
 </div>
 <% } %>
 
+<div class="main">
 <h1 class="info">Hotel Information</h1>
 
 <div class="card">
@@ -36,7 +37,13 @@
     <p class="card-text"><%= list.description %></p>
     <h2 class="card-head"> &#8377;<%= list.price.toLocaleString() %> / night</h2>
     <h2 class="card-head"><%= list.location %>, <%= list.country %></h2>
-    <h2 class="card-head">contact:<%= list.owner.email %></h2>
+    <% if(currUser && !currUser._id.equals(list.owner._id)) { %>
+    <h4 class="booking-thankyou">
+      Thank you for choosing us!<br>
+      Please contact us at <%= list.owner.email %> for further booking details and confirmation.<br>
+      We look forward to serving you!
+    </h4>
+    <% } %>
     <div class="butt">
       <% if(currUser && currUser._id.equals(list.owner._id)) { %>
       <div>
@@ -130,6 +137,7 @@
       <% } %>
   </div>
   <% } %>
+</div>
 </div>
 <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
 <script>
