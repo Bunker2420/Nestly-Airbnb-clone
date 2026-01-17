@@ -31,7 +31,7 @@ NestlyHome is a streamlined and user-friendly clone of Airbnb, developed using N
 ---
 
 📧 Contact
-Ph-no:7416842005
+Ph-no:7416411524
 Made with 💙 by T Sai Ruthwick.
 
 
